@@ -26,10 +26,16 @@ function countDown(){
     console.log(day,hour,mins,secs); // 
 
     daysEl.innerHTML = day;
-    hoursEl.innerHTML = hour;
-    minutesEl.innerHTML = mins;
-    secondsEl.innerHTML = secs;
+    hoursEl.innerHTML = formatTime(hour);
+    minutesEl.innerHTML = formatTime(mins);
+    secondsEl.innerHTML = formatTime(secs);
 
+}
+
+function formatTime(time) {
+
+    return time < 10 ? (`0${time}`) : time;
+    
 }
 
 
