@@ -20,15 +20,27 @@ body{
 h1{
     font-weight: normal;
     font-size:5rem;
+    margin-top:5rem;
 }
 
 .countdown-container{
     display: flex;
-    margin-top:-12rem;
+  
 }
 
 .big-text{
-    font-size:6rem;
+    font-size:7rem;
     font-weight: bold;
+    line-height: 1;
+    margin:0 4rem;
+
+}
+
+.countdown-box{
+    text-align: center;
+}
+
+.countdown-box span{
+    font-size:1.7rem;
 }
 
