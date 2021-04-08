@@ -1,6 +1,6 @@
-const questions = [
+const quizData = [
     {
-        question: "How wold is Asim",
+        question: "How old is Asim",
         a: '10',
         b: '16',
         c: '21',
@@ -36,3 +36,27 @@ const questions = [
         correct: 'd'
     },
 ]
+
+const questionEl = document.getElementById('question')
+const a_text=document.getElementById('a_text')
+const b_text=document.getElementById('b_text')
+const c_text=document.getElementById('c_text')
+const d_text=document.getElementById('d_text')
+
+let currentQuestion = 0;
+
+loadQuiz();
+
+
+function loadQuiz() {
+    const currentQuizData = quizData[currentQuestion];
+    questionEl.innerText = currentQuizData.question;
+    a_text.innerText = currentQuizData.a;
+    b_text.innerText = currentQuizData.b;
+    c_text.innerText = currentQuizData.c;
+    d_text.innerText = currentQuizData.d;
+    
+    
+    currentQuestion++;
+
+}
