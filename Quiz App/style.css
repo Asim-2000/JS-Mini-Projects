@@ -28,6 +28,12 @@ body{
 
 }
 
+h2{
+    text-align: center;
+    margin: 0;
+    padding: 1rem;
+}
+
 
 .quiz-header{
     padding:2rem;
@@ -36,6 +42,7 @@ body{
 .quiz-header h2{
     text-align: center;
 }
+
 
 ul{
 
@@ -62,6 +69,12 @@ button{
 button:hover{
     background-color: #c7848d;
     cursor: pointer;
+
+}
+
+button:focus{
+   background-color: #eb304c;
+   outline: none;
 
 }
 

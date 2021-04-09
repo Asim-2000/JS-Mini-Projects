@@ -36,15 +36,17 @@ const quizData = [
         correct: 'd'
     },
 ]
-
+const answers = document.querySelectorAll(".answers");
 const questionEl = document.getElementById('question')
 const a_text=document.getElementById('a_text')
 const b_text=document.getElementById('b_text')
 const c_text=document.getElementById('c_text')
 const d_text = document.getElementById('d_text')
 const submitBtn = document.getElementById('submit')
+const quiz = document.getElementById('quiz')
 
 let currentQuestion = 0;
+let score = 0;
 
 loadQuiz();
 
@@ -56,17 +58,44 @@ function loadQuiz() {
     b_text.innerText = currentQuizData.b;
     c_text.innerText = currentQuizData.c;
     d_text.innerText = currentQuizData.d;
-    
-    
-    // currentQuestion++;
+}
 
+function getSelected() {
+    let answer = undefined;
+    answers.forEach((answerEl)=> {
+        if (answerEl.checked) {
+            answer= answerEl.id
+        }
+    })
+    return answer;
+}
+
+function deselectAnswers() {
+    answers.forEach((answerEl) => {
+      if (answerEl.checked) {
+        answerEl.checked=false;
+      }
+    });
 }
 
 submitBtn.addEventListener("click", () => {
 
-    // if (currentQuestion.correct===)
+    const answer = getSelected();
 
-    currentQuestion++;
-    loadQuiz();
-    
+    if (answer) {
+        if (answer === quizData[currentQuestion].correct) {
+        
+            score++;
+            
+        } 
+        currentQuestion++
+        if (currentQuestion < quizData.length) {
+          loadQuiz();
+        } else {
+            quiz.innerHTML =
+                `<h2>You answered correctly at ${score}/${quizData.length} questions.</h2><button onclick="location.reload()">Reload</button>`;
+        }
+
+    }
+    deselectAnswers(); 
 })
